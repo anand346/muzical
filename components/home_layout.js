@@ -1,11 +1,13 @@
- export default function HomeLayout(){
+import Image from "next/image";
+
+export default function HomeLayout(){
 
     return (
         <>
             <div className = "font-Helvetica h-screen relative w-screen bg-[url('/images/bg_home.png')] bg-cover md:p-8 sm:p-4 p-4">
                 <div className = "navbar w-full flex items-center justify-between md:mb-[50px] mb-[100px]">
                     <div className = "logo">
-                        <img src = "/images/logo.png" className = "w-[5rem] md:w-[7rem] " />
+                        <Image src = "/images/logo.png" alt="Muzical Logo" height={100} width={100} className = "w-[5rem] md:w-[7rem] " />
                     </div>
                     <div className = "create_room_btn cursor-pointer rounded-[10rem] py-[4px] px-[10px] md:py-[7px] md:px-[20px] bg-muzical_secondary font-bold">
                         <p className = "text-muzical_primary text-[12px] md:text-[14px] "  data-modal-toggle="createRoomModal" ><i className = "text-[#fff] fa fa-plus pr-[5px]"></i> Create Room</p>
