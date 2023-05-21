@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { useState } from "react";
 
 export default function HomeLayout(){
+
+    const [visible,setVisible] = useState(true);
 
     return (
         <>
@@ -44,17 +47,17 @@ export default function HomeLayout(){
                                             <label htmlFor="roomName" className="block mb-2 text-sm sm:text-lg font-medium text-muzical_primary">Room Name</label>
                                             <input type="text" id="roomName" className="focus:bg-muzical_secondary_high bg-transparent placeholder-muzical_secondary_low border border-muzical_primary text-muzical_primary text-sm sm:text-lg rounded-lg focus:ring-muzical_primary focus:border-muzical_primary block w-full p-2.5 " placeholder="My Room..." required />
                                         </div>
-                                        <div>
+                                        <div className = {`${visible ? "block" : "hidden"}`}>
                                             <label htmlFor="password" className="block mb-2 text-sm sm:text-lg font-medium text-muzical_primary">Password</label>
                                             <input type="password" id="password" className="focus:bg-muzical_secondary_high bg-transparent placeholder-muzical_secondary_low border border-muzical_primary text-muzical_primary text-sm sm:text-lg rounded-lg focus:ring-muzical_primary focus:border-muzical_primary block w-full p-2.5 " placeholder = "password..." required />
                                         </div>
-                                        <div>
+                                        <div className = {`${visible ? "block" : "hidden"}`}>
                                             <label htmlFor="confirmPassword" className="block mb-2 text-sm sm:text-lg font-medium text-muzical_primary">Confirm Password</label>
                                             <input type="password" id="confirmPassword" className="focus:bg-muzical_secondary_high bg-transparent placeholder-muzical_secondary_low border border-muzical_primary text-muzical_primary text-sm sm:text-lg rounded-lg focus:ring-muzical_primary focus:border-muzical_primary block w-full p-2.5 " placeholder = "password again..." required />
                                         </div>
                                         <div className="flex items-center">
                                             <div className="flex items-center">
-                                                <input id="remember" type="checkbox" value="" className="w-4 h-4 focus:ring-muzical_primary focus:border-muzical_primary border border-muzical_primary bg-transparent text-muzical_primary rounded text-sm sm:text-lg" required />
+                                                <input id="remember" onChange = {(e) => setVisible(!visible)} type="checkbox" value="" className="w-4 h-4 focus:ring-muzical_primary focus:border-muzical_primary border border-muzical_primary bg-transparent text-muzical_primary rounded text-sm sm:text-lg" required />
                                             </div>
                                             <label htmlFor="remember" className="ml-2 text-sm sm:text-lg font-medium text-muzical_primary ">Public Room</label>
                                         </div>
