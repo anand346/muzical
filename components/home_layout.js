@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function HomeLayout(){
@@ -22,7 +23,7 @@ export default function HomeLayout(){
                         <p className = "text-muzical_black text-[14px] md:text-[24px] text-center">Enjoy music with your friends and loved ones at one place</p>
                     </div>
                     <div className = "explore_rooms_btn cursor-pointer px-[20px] py-[5px] bg-[#fff] rounded-[10rem]">
-                        <p className = " text-[12px] md:text-[18px] text-muzical_black font-bold">Public Rooms <i className = "pl-[5px] fa fa-arrow-right"></i> </p>
+                        <Link href="/public_rooms"><p className = " text-[12px] md:text-[18px] text-muzical_black font-bold">Public Rooms <i className = "pl-[5px] fa fa-arrow-right"></i> </p></Link>
                     </div>
 
                     {/* <!-- Main modal --> */}
