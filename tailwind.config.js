@@ -12,6 +12,10 @@ module.exports = {
       muzical_secondary_high : "#1b1924",
       muzical_grey : "#b8b7bd",
       muzical_black : "#2E282A",
+      youtube_dark : "#40128B",
+      youtube_bg : "#9336B4",
+      youtube_bg_light : "#DD58D6",
+      youtube_light : "#FFE79B",
     },
     fontFamily :{
       Helvetica : ['Helvetica'],
