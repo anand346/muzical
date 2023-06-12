@@ -2,7 +2,7 @@ import { useChannel } from "@ably-labs/react-hooks";
 import { useState, useRef, useEffect, useCallback } from "react";
 import YouTube from "react-youtube";
 
-function youtube(){
+function YouTubePage(){
 
     const [link,setLink] = useState("");
     let videoCode;
@@ -90,4 +90,4 @@ function youtube(){
     )
 }
 
-export default youtube;
+export default YouTubePage;
