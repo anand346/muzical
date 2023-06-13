@@ -1,15 +1,50 @@
 import { useChannel } from "@ably-labs/react-hooks";
 import { useState, useRef, useEffect, useCallback } from "react";
-import YouTube from "react-youtube";
+import YouTube , {YouTubePlayer} from "react-youtube";
 
+
+let videoElement = null;
 function YouTubePage(){
 
     const [link,setLink] = useState("");
-    let videoCode;
-    if(link.length != 0){
-        videoCode = youtube_parser(link);
-        console.log("video code",videoCode);
-    }
+    const [videoCode , setVideoCode] = useState("5Y-aYA6YLlg");
+    const [videoElement,setVideoElement] = useState(null);
+
+    const opts = {
+        playerVars: {
+            // https://developers.google.com/youtube/player_parameters
+            autoplay: 1
+        }
+    };
+
+    // useEffect(() => {
+    //     if (videoElement) {
+    //         // get current time
+    //         const elapsed_seconds = videoElement.target.getCurrentTime();
+      
+    //         // calculations
+    //         const elapsed_milliseconds = Math.floor(elapsed_seconds * 1000);
+    //         const ms = elapsed_milliseconds % 1000;
+    //         const min = Math.floor(elapsed_milliseconds / 60000);
+    //         const seconds = Math.floor((elapsed_milliseconds - min * 60000) / 1000);
+      
+    //         const formattedCurrentTime =
+    //           min.toString().padStart(2, "0") +
+    //           ":" +
+    //           seconds.toString().padStart(2, "0") +
+    //           ":" +
+    //           ms.toString().padStart(3, "0");
+      
+    //         console.log(formattedCurrentTime);
+      
+    //         // Pause and Play video
+    //         if (isPaused) {
+    //           videoElement.target.pauseVideo();
+    //         } else {
+    //           videoElement.target.playVideo();
+    //         }
+    //       }
+    // },[isPaused, videoElement])
 
 
     function youtube_parser(url){
@@ -20,29 +55,32 @@ function YouTubePage(){
 
     const [channel, ably] = useChannel("youtube-demo", (message) => {
         console.log(message);
-        // switch(message.name){
+        switch(message.name){
 
-            // case "embed" : 
-                
+            case "embed" : 
+                setVideoCode(youtube_parser(link));
 
-            // case "play" :
-            //     var yt_iframe = document.getElementsByClassName("youtube-embed")[0];
-            //     yt_iframe.contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+            case "play" :
+                videoElement.target.playVideo();
 
-            // case "pause" :
-            //     var yt_iframe = document.getElementsByClassName("youtube-embed")[0];
-            //     yt_iframe.contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+            case "pause" :
+                videoElement.target.pauseVideo();
 
             // case "stop" :
             //     var yt_iframe = document.getElementsByClassName("youtube-embed")[0];
             //     yt_iframe.contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
             
-        // }
+        }
 
     })
 
-    const checkElapsedTime = (e) => {
-        console.log(e.target.playerInfo.playerState);
+    const handleYoutubeStateChange = (e) => {
+        var state = e.target.playerInfo.playerState;
+        if(state == 1){
+            channel.publish({name : "play" ,data : "play"})
+        }else if(state == 2){
+            channel.publish({name : "pause" ,data : "pause"})
+        }
         // const duration = e.target.getDuration();
         // const currentTime = e.target.getCurrentTime();
         // if (currentTime / duration > 0.95) {
@@ -50,18 +88,15 @@ function YouTubePage(){
         // }
     };
     
-    const opts = {
-        playerVars: {
-            // https://developers.google.com/youtube/player_parameters
-            autoplay: 1
-        }
+    const _onReady = (event) => {
+        event.target.pauseVideo();
+        setVideoElement(event) ;
     };
 
     const embedHandler = () => {
-        // console.log(link);
+        // console.log(link);   
         channel.publish({name : "embed" , data : link})
     }
-
     return (
         <> 
             <div className = "w-full h-screen flex flex-col justify-center items-center bg-youtube_dark">
@@ -76,9 +111,10 @@ function YouTubePage(){
                         
                            
                         <YouTube
-                            videoId="5Y-aYA6YLlg"
+                            videoId={videoCode}
                             containerClassName="embed embed-youtube"
-                            onStateChange={(e) => checkElapsedTime(e)}
+                            onStateChange={handleYoutubeStateChange}
+                            onReady={_onReady}
                             opts={opts}
                         />
                            
