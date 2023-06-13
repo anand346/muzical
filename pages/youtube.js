@@ -2,8 +2,6 @@ import { useChannel } from "@ably-labs/react-hooks";
 import { useState, useRef, useEffect, useCallback } from "react";
 import YouTube , {YouTubePlayer} from "react-youtube";
 
-
-let videoElement = null;
 function YouTubePage(){
 
     const [link,setLink] = useState("");
@@ -58,7 +56,7 @@ function YouTubePage(){
         switch(message.name){
 
             case "embed" : 
-                setVideoCode(youtube_parser(link));
+                setVideoCode(youtube_parser(message.data));
 
             case "play" :
                 videoElement.target.playVideo();
