@@ -53,14 +53,34 @@ function YouTubePage(){
 
     function playVideo(){
         if(videoElement){
-            console.log("play video logged",videoElement);
-            videoElement.target.playVideo();
+            if(videoElement.target.playerInfo.playerState != 1){
+                console.log("play video logged",videoElement);
+                videoElement.target.playVideo();
+                channel.publish({name : "play" ,data : "play"})
+            }
+        }
+    }
+    function _playVideo(){
+        if(videoElement){
+            if(videoElement.target.playerInfo.playerState != 1){
+                videoElement.target.playVideo();
+            }
         }
     }
     function pauseVideo(){
         if(videoElement){
-            console.log("pause video logged",videoElement);
-            videoElement.target.pauseVideo();
+            if(videoElement.target.playerInfo.playerState != 2){
+                console.log("pause video logged",videoElement);
+                videoElement.target.pauseVideo();
+                channel.publish({name : "pause" ,data : "pause"})
+            }
+        }
+    }
+    function _pauseVideo(){
+        if(videoElement){
+            if(videoElement.target.playerInfo.playerState != 2){
+                videoElement.target.pauseVideo();
+            }
         }
     }
 
@@ -72,10 +92,10 @@ function YouTubePage(){
                 setVideoCode(youtube_parser(message.data));
 
             case "play" :
-                playVideo();
+                _playVideo();
 
             case "pause" :
-                pauseVideo();
+                _pauseVideo();
 
             // case "stop" :
             //     var yt_iframe = document.getElementsByClassName("youtube-embed")[0];
@@ -87,17 +107,19 @@ function YouTubePage(){
 
     const handleYoutubeStateChange = (e) => {
         var state = e.target.playerInfo.playerState;
-        if(state == 1){
-            channel.publish({name : "play" ,data : "play"})
-        }else if(state == 2){
-            channel.publish({name : "pause" ,data : "pause"})
-        }
+        // if(state == 1){
+        //     channel.publish({name : "play" ,data : "play"})
+        // }else if(state == 2){
+        //     channel.publish({name : "pause" ,data : "pause"})
+        // }
         // const duration = e.target.getDuration();
         // const currentTime = e.target.getCurrentTime();
         // if (currentTime / duration > 0.95) {
         //     setModalIsOpen(true);
         // }
     };
+
+
     
     const _onReady = (event) => {
         event.target.pauseVideo();
@@ -129,6 +151,11 @@ function YouTubePage(){
                             opts={opts}
                         />
                            
+                    </div>
+                    <div className = "player_controller flex flex-row">
+                        <button onClick={() => playVideo()} >play</button>
+                        <button onClick={() => pauseVideo()} >pause</button>
+                        {/* <button>stop</button> */}
                     </div>
                 </div>
             </div>
