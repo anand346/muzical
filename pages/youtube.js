@@ -2,11 +2,11 @@ import { useChannel } from "@ably-labs/react-hooks";
 import { useState, useRef, useEffect, useCallback } from "react";
 import YouTube , {YouTubePlayer} from "react-youtube";
 
+let videoElement;
 function YouTubePage(){
 
     const [link,setLink] = useState("");
     const [videoCode , setVideoCode] = useState("5Y-aYA6YLlg");
-    const [videoElement,setVideoElement] = useState(null);
 
     const opts = {
         playerVars: {
@@ -15,34 +15,34 @@ function YouTubePage(){
         }
     };
 
-    // useEffect(() => {
-    //     if (videoElement) {
-    //         // get current time
-    //         const elapsed_seconds = videoElement.target.getCurrentTime();
+    useEffect(() => {
+        // if (videoElement) {
+        //     // get current time
+        //     const elapsed_seconds = videoElement.target.getCurrentTime();
       
-    //         // calculations
-    //         const elapsed_milliseconds = Math.floor(elapsed_seconds * 1000);
-    //         const ms = elapsed_milliseconds % 1000;
-    //         const min = Math.floor(elapsed_milliseconds / 60000);
-    //         const seconds = Math.floor((elapsed_milliseconds - min * 60000) / 1000);
+        //     // calculations
+        //     const elapsed_milliseconds = Math.floor(elapsed_seconds * 1000);
+        //     const ms = elapsed_milliseconds % 1000;
+        //     const min = Math.floor(elapsed_milliseconds / 60000);
+        //     const seconds = Math.floor((elapsed_milliseconds - min * 60000) / 1000);
       
-    //         const formattedCurrentTime =
-    //           min.toString().padStart(2, "0") +
-    //           ":" +
-    //           seconds.toString().padStart(2, "0") +
-    //           ":" +
-    //           ms.toString().padStart(3, "0");
+        //     const formattedCurrentTime =
+        //       min.toString().padStart(2, "0") +
+        //       ":" +
+        //       seconds.toString().padStart(2, "0") +
+        //       ":" +
+        //       ms.toString().padStart(3, "0");
       
-    //         console.log(formattedCurrentTime);
+        //     console.log(formattedCurrentTime);
       
-    //         // Pause and Play video
-    //         if (isPaused) {
-    //           videoElement.target.pauseVideo();
-    //         } else {
-    //           videoElement.target.playVideo();
-    //         }
-    //       }
-    // },[isPaused, videoElement])
+        //     // Pause and Play video
+        //     if (isPaused) {
+        //       videoElement.target.pauseVideo();
+        //     } else {
+        //       videoElement.target.playVideo();
+        //     }
+        //   }
+    },[videoElement])
 
 
     function youtube_parser(url){
@@ -101,7 +101,7 @@ function YouTubePage(){
     
     const _onReady = (event) => {
         event.target.pauseVideo();
-        setVideoElement(event) ;
+        videoElement = event ;
     };
 
     const embedHandler = () => {
