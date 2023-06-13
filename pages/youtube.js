@@ -72,10 +72,10 @@ function YouTubePage(){
                 setVideoCode(youtube_parser(message.data));
 
             case "play" :
-                playVideo()
+                playVideo();
 
             case "pause" :
-                pauseVideo()
+                pauseVideo();
 
             // case "stop" :
             //     var yt_iframe = document.getElementsByClassName("youtube-embed")[0];
