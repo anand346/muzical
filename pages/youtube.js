@@ -92,10 +92,14 @@ function YouTubePage(){
                 setVideoCode(youtube_parser(message.data));
 
             case "play" :
-                _playVideo();
+                if(message.connectionId != ably.connection.id){
+                    _playVideo();
+                }
 
             case "pause" :
-                _pauseVideo();
+                if(message.connectionId != ably.connection.id){
+                    _pauseVideo();
+                }
 
             // case "stop" :
             //     var yt_iframe = document.getElementsByClassName("youtube-embed")[0];
