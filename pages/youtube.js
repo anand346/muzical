@@ -59,6 +59,7 @@ function YouTubePage(){
                 setVideoCode(youtube_parser(message.data));
 
             case "play" :
+                console.log(videoElement)
                 videoElement.target.playVideo();
 
             case "pause" :
