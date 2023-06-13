@@ -51,6 +51,19 @@ function YouTubePage(){
         return (match&&match[7].length==11)? match[7] : false;
     }
 
+    function playVideo(){
+        if(videoElement){
+            console.log("play video logged",videoElement);
+            videoElement.target.playVideo();
+        }
+    }
+    function pauseVideo(){
+        if(videoElement){
+            console.log("pause video logged",videoElement);
+            videoElement.target.pauseVideo();
+        }
+    }
+
     const [channel, ably] = useChannel("youtube-demo", (message) => {
         console.log(message);
         switch(message.name){
@@ -59,11 +72,10 @@ function YouTubePage(){
                 setVideoCode(youtube_parser(message.data));
 
             case "play" :
-                console.log(videoElement)
-                videoElement.target.playVideo();
+                playVideo()
 
             case "pause" :
-                videoElement.target.pauseVideo();
+                pauseVideo()
 
             // case "stop" :
             //     var yt_iframe = document.getElementsByClassName("youtube-embed")[0];
