@@ -59,7 +59,7 @@ function YouTubePage(){
                 console.log(videoElement.target.getCurrentTime());
                 var currTime = videoElement.target.getCurrentTime();
                 videoElement.target.playVideo();
-                channel.publish({name : "play" ,data : currTime})
+                channel.publish({name : "play" ,data : parseInt(currTime)})
             }
         }
     }
@@ -78,7 +78,7 @@ function YouTubePage(){
                 console.log(videoElement.target.getCurrentTime());
                 var currTime = videoElement.target.getCurrentTime();
                 videoElement.target.pauseVideo();
-                channel.publish({name : "pause" ,data : currTime})
+                channel.publish({name : "pause" ,data : parseInt(currTime)})
             }
         }
     }
