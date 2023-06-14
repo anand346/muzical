@@ -129,7 +129,7 @@ function YouTubePage(){
 
     
     const _onReady = (event) => {
-        event.target.pauseVideo();
+        event.target.playVideo();
         videoElement = event ;
     };
 
