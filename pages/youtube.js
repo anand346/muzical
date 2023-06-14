@@ -3,7 +3,6 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import YouTube , {YouTubePlayer} from "react-youtube";
 
 let videoElement;
-let currentTime = 0;
 function YouTubePage(){
 
     const [link,setLink] = useState("");
@@ -57,16 +56,17 @@ function YouTubePage(){
         if(videoElement){
             if(videoElement.target.playerInfo.playerState != 1){
                 console.log("play video logged",videoElement);
-                console.log(videoElement.target.getCurrentTime())
+                console.log(videoElement.target.getCurrentTime());
+                var currTime = videoElement.target.getCurrentTime();
                 videoElement.target.playVideo();
-                channel.publish({name : "play" ,data : "play"})
+                channel.publish({name : "play" ,data : currTime})
             }
         }
     }
-    function _playVideo(){
+    function _playVideo(currTime){
         if(videoElement){
             if(videoElement.target.playerInfo.playerState != 1){
-                // videoElement.target.seekTo(currentTime);
+                videoElement.target.seekTo(currTime);
                 videoElement.target.playVideo();
             }
         }
@@ -76,15 +76,16 @@ function YouTubePage(){
             if(videoElement.target.playerInfo.playerState != 2){
                 console.log("pause video logged",videoElement);
                 console.log(videoElement.target.getCurrentTime());
+                var currTime = videoElement.target.getCurrentTime();
                 videoElement.target.pauseVideo();
-                channel.publish({name : "pause" ,data : "pause"})
+                channel.publish({name : "pause" ,data : currTime})
             }
         }
     }
-    function _pauseVideo(){
+    function _pauseVideo(currTime){
         if(videoElement){
             if(videoElement.target.playerInfo.playerState != 2){
-                // videoElement.target.seekTo(currentTime);
+                videoElement.target.seekTo(currTime);
                 videoElement.target.pauseVideo();
             }
         }
@@ -99,14 +100,12 @@ function YouTubePage(){
 
             case "play" :
                 if(message.connectionId != ably.connection.id){
-                    // currentTime = message.data
-                    _playVideo();
+                    _playVideo(message.data);
                 }
 
             case "pause" :
                 if(message.connectionId != ably.connection.id){
-                    // currentTime = message.data
-                    _pauseVideo();
+                    _pauseVideo(message.data);
                 }
             
         }
