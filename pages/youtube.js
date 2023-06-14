@@ -3,10 +3,12 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import YouTube , {YouTubePlayer} from "react-youtube";
 
 let videoElement;
+let currentTime = 0;
 function YouTubePage(){
 
     const [link,setLink] = useState("");
     const [videoCode , setVideoCode] = useState("5Y-aYA6YLlg");
+    
 
     const opts = {
         playerVars: {
@@ -42,7 +44,7 @@ function YouTubePage(){
         //       videoElement.target.playVideo();
         //     }
         //   }
-    },[videoElement])
+    },[videoElement,currentTime])
 
 
     function youtube_parser(url){
@@ -55,14 +57,16 @@ function YouTubePage(){
         if(videoElement){
             if(videoElement.target.playerInfo.playerState != 1){
                 console.log("play video logged",videoElement);
+                currentTime = videoElement.target.getCurrentTime();
                 videoElement.target.playVideo();
-                channel.publish({name : "play" ,data : "play"})
+                channel.publish({name : "play" ,data : currentTime})
             }
         }
     }
     function _playVideo(){
         if(videoElement){
             if(videoElement.target.playerInfo.playerState != 1){
+                videoElement.target.seekTo(currentTime);
                 videoElement.target.playVideo();
             }
         }
@@ -71,14 +75,16 @@ function YouTubePage(){
         if(videoElement){
             if(videoElement.target.playerInfo.playerState != 2){
                 console.log("pause video logged",videoElement);
+                currentTime = videoElement.target.getCurrentTime();
                 videoElement.target.pauseVideo();
-                channel.publish({name : "pause" ,data : "pause"})
+                channel.publish({name : "pause" ,data : currentTime})
             }
         }
     }
     function _pauseVideo(){
         if(videoElement){
             if(videoElement.target.playerInfo.playerState != 2){
+                videoElement.target.seekTo(currentTime);
                 videoElement.target.pauseVideo();
             }
         }
@@ -93,17 +99,15 @@ function YouTubePage(){
 
             case "play" :
                 if(message.connectionId != ably.connection.id){
+                    currentTime = message.data
                     _playVideo();
                 }
 
             case "pause" :
                 if(message.connectionId != ably.connection.id){
+                    currentTime = message.data
                     _pauseVideo();
                 }
-
-            // case "stop" :
-            //     var yt_iframe = document.getElementsByClassName("youtube-embed")[0];
-            //     yt_iframe.contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
             
         }
 
