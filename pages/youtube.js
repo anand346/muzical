@@ -59,7 +59,7 @@ function YouTubePage(){
                 console.log(videoElement.target.getCurrentTime());
                 var currTime = videoElement.target.getCurrentTime();
                 videoElement.target.playVideo();
-                channel.publish({name : "play" ,data : parseInt(currTime)})
+                channel.publish({name : "play" ,data : {time : Math.floor(currTime)}})
             }
         }
     }
@@ -78,7 +78,7 @@ function YouTubePage(){
                 console.log(videoElement.target.getCurrentTime());
                 var currTime = videoElement.target.getCurrentTime();
                 videoElement.target.pauseVideo();
-                channel.publish({name : "pause" ,data : parseInt(currTime)})
+                channel.publish({name : "pause" ,data : {time : Math.floor(currTime)}})
             }
         }
     }
@@ -100,12 +100,12 @@ function YouTubePage(){
 
             case "play" :
                 if(message.connectionId != ably.connection.id){
-                    _playVideo(message.data);
+                    _playVideo(message.data.time);
                 }
 
             case "pause" :
                 if(message.connectionId != ably.connection.id){
-                    _pauseVideo(message.data);
+                    _pauseVideo(message.data.time);
                 }
             
         }
