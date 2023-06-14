@@ -44,7 +44,7 @@ function YouTubePage(){
         //       videoElement.target.playVideo();
         //     }
         //   }
-    },[videoElement,currentTime])
+    },[videoElement])
 
 
     function youtube_parser(url){
@@ -57,16 +57,16 @@ function YouTubePage(){
         if(videoElement){
             if(videoElement.target.playerInfo.playerState != 1){
                 console.log("play video logged",videoElement);
-                currentTime = videoElement.target.getCurrentTime();
+                console.log(videoElement.target.getCurrentTime())
                 videoElement.target.playVideo();
-                channel.publish({name : "play" ,data : currentTime})
+                channel.publish({name : "play" ,data : "play"})
             }
         }
     }
     function _playVideo(){
         if(videoElement){
             if(videoElement.target.playerInfo.playerState != 1){
-                videoElement.target.seekTo(currentTime);
+                // videoElement.target.seekTo(currentTime);
                 videoElement.target.playVideo();
             }
         }
@@ -75,16 +75,16 @@ function YouTubePage(){
         if(videoElement){
             if(videoElement.target.playerInfo.playerState != 2){
                 console.log("pause video logged",videoElement);
-                currentTime = videoElement.target.getCurrentTime();
+                console.log(videoElement.target.getCurrentTime());
                 videoElement.target.pauseVideo();
-                channel.publish({name : "pause" ,data : currentTime})
+                channel.publish({name : "pause" ,data : "pause"})
             }
         }
     }
     function _pauseVideo(){
         if(videoElement){
             if(videoElement.target.playerInfo.playerState != 2){
-                videoElement.target.seekTo(currentTime);
+                // videoElement.target.seekTo(currentTime);
                 videoElement.target.pauseVideo();
             }
         }
@@ -99,13 +99,13 @@ function YouTubePage(){
 
             case "play" :
                 if(message.connectionId != ably.connection.id){
-                    currentTime = message.data
+                    // currentTime = message.data
                     _playVideo();
                 }
 
             case "pause" :
                 if(message.connectionId != ably.connection.id){
-                    currentTime = message.data
+                    // currentTime = message.data
                     _pauseVideo();
                 }
             
