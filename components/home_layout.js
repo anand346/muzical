@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function HomeLayout(){
 
-    const [visible,setVisible] = useState(true);
+    // const [visible,setVisible] = useState(true);
 
     return (
         <>
@@ -14,7 +14,7 @@ export default function HomeLayout(){
                         <Image src = "/images/logo.png" alt="Muzical Logo" height={100} width={100} className = "w-[5rem] md:w-[7rem] " />
                     </div>
                     <div className = "create_room_btn cursor-pointer rounded-[10rem] py-[4px] px-[10px] md:py-[7px] md:px-[20px] bg-muzical_secondary font-bold">
-                        <p className = "text-muzical_primary text-[12px] md:text-[14px] "  data-modal-toggle="createRoomModal" ><i className = "text-[#fff] fa fa-plus pr-[5px]"></i> Create Room</p>
+                        <Link href="/public_rooms"><p className = "text-muzical_primary text-[12px] md:text-[14px] " >Public Rooms <i className = "pl-[5px] fa fa-arrow-right"></i> </p></Link>
                     </div>
                 </div>
                 <section className = "w-full flex flex-col items-center justify-center">
@@ -23,7 +23,7 @@ export default function HomeLayout(){
                         <p className = "text-muzical_black text-[14px] md:text-[24px] text-center">Enjoy music with your friends and loved ones at one place</p>
                     </div>
                     <div className = "explore_rooms_btn cursor-pointer px-[20px] py-[5px] bg-[#fff] rounded-[10rem]">
-                        <Link href="/public_rooms"><p className = " text-[12px] md:text-[18px] text-muzical_black font-bold">Public Rooms <i className = "pl-[5px] fa fa-arrow-right"></i> </p></Link>
+                        <p className = " text-[12px] md:text-[18px] text-muzical_black font-bold" data-modal-toggle="createRoomModal"><i className = "text-dark fa fa-plus pr-[5px]"></i> Create Room</p>
                     </div>
 
                     {/* <!-- Main modal --> */}
@@ -48,7 +48,7 @@ export default function HomeLayout(){
                                             <label htmlFor="roomName" className="block mb-2 text-sm sm:text-lg font-medium text-muzical_primary">Room Name</label>
                                             <input type="text" id="roomName" className="focus:bg-muzical_secondary_high bg-transparent placeholder-muzical_secondary_low border border-muzical_primary text-muzical_primary text-sm sm:text-lg rounded-lg focus:ring-muzical_primary focus:border-muzical_primary block w-full p-2.5 " placeholder="My Room..." required />
                                         </div>
-                                        <div className = {`${visible ? "block" : "hidden"}`}>
+                                        {/* <div className = {`${visible ? "block" : "hidden"}`}>
                                             <label htmlFor="password" className="block mb-2 text-sm sm:text-lg font-medium text-muzical_primary">Password</label>
                                             <input type="password" id="password" className="focus:bg-muzical_secondary_high bg-transparent placeholder-muzical_secondary_low border border-muzical_primary text-muzical_primary text-sm sm:text-lg rounded-lg focus:ring-muzical_primary focus:border-muzical_primary block w-full p-2.5 " placeholder = "password..." required />
                                         </div>
@@ -61,7 +61,7 @@ export default function HomeLayout(){
                                                 <input id="remember" onChange = {(e) => setVisible(!visible)} type="checkbox" value="" className="w-4 h-4 focus:ring-muzical_primary focus:border-muzical_primary border border-muzical_primary bg-transparent text-muzical_primary rounded text-sm sm:text-lg" required />
                                             </div>
                                             <label htmlFor="remember" className="ml-2 text-sm sm:text-lg font-medium text-muzical_primary ">Public Room</label>
-                                        </div>
+                                        </div> */}
                                         <button type="submit" className="text-muzical_primary bg-transparent border border-muzical_primary hover:bg-muzical_secondary_high focus:ring-muzical_primary font-medium rounded-lg text-sm sm:text-lg w-full sm:w-auto px-3 py-1.5 sm:px-5 sm:py-2.5 text-center ">Create Room <i className = "fa fa-arrow-right ml-2 text-muzical_primary"></i></button>
                                     </form>
                                 </div>
