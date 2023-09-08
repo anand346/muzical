@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Room_card from "@/components/room_card";
+import Room_card from "@/components/RoomCard";
 export default function public_rooms(){
 
     return (
