@@ -141,20 +141,20 @@ function YouTubePage(){
     }
     return (
         <> 
-            <div className = "flex flex-col h-screen w-screen bg-muzical_secondary">
+            <div className = "flex flex-col min-h-screen h-[600px] w-screen bg-muzical_secondary">
                 <RoomHeader />
                 <div className = "h-[87%] flex justify-center w-screen ">
                     {/* <RoomLeftSidebar /> */}
                     {/* <RoomVideoBlock /> */}
                     <div className = "w-full h-full overflow-hidden md:w-6/12 flex flex-col bg-muzical_secondary h-full  pl-6 pr-6 ">
                         <div className = "flex justify-start items-center mb-[20px] h-[60px] ">
-                            <div className="relative w-8/12 pr-4 bg-transparent h-14 flex items-center justify-center">
+                            <div className="relative w-10/12 pr-4 bg-transparent h-14 flex items-center justify-center">
                                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                     <i className = "fa fa-search text-muzical_primary w-4 h-4"></i>
                                 </div>
                                 <input type="text" value={link}  onChange = {(e) => setLink(e.target.value)}  id="voice-search" className="bg-muzical_secondary_low h-8 text-muzical_primary text-sm rounded-md focus:ring-muzical_primary focus:border-muzical_primary border-none placeholder:text-muzical_primary block w-full pl-10 p-2.5 " placeholder="Video link..." />
                             </div>
-                            <button onClick = {(e) => embedHandler(e)}  className = "w-2/12 bg-muzical_secondary_low h-8 text-muzical_primary text-sm rounded-md focus:ring-muzical_primary focus:border-muzical_primary border-none text-center pl-2.5 pr-2.5 ">Embed</button>
+                            <button onClick = {(e) => embedHandler(e)}  className = "w-2/12 min-w-fit bg-muzical_secondary_low h-8 text-muzical_primary text-sm rounded-md focus:ring-muzical_primary focus:border-muzical_primary border-none text-center pl-2.5 pr-2.5 ">Embed</button>
                         </div>
                         <div className = "rounded-md bg-muzical_secondary_low h-80 mb-[40px] w-[100%] relative">
                             <YouTube
