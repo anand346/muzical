@@ -92,7 +92,7 @@ function YouTubePage(){
         }
     }
 
-    const [channel, ably] = useChannel("youtube-demo", (message) => {
+    const [channel, ably] = useChannel("third", (message) => {
         console.log(message);
         switch(message.name){
 
@@ -152,9 +152,9 @@ function YouTubePage(){
                                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                     <i className = "fa fa-search text-muzical_primary w-4 h-4"></i>
                                 </div>
-                                <input type="text" value={link}  onChange = {(e) => setLink(e.target.value)}  id="voice-search" className="bg-muzical_secondary_low h-8 text-muzical_primary text-sm rounded-md focus:ring-muzical_primary focus:border-muzical_primary border-none placeholder:text-muzical_primary block w-full pl-10 p-2.5 " placeholder="Search Videos..." />
+                                <input type="text" value={link}  onChange = {(e) => setLink(e.target.value)}  id="voice-search" className="bg-muzical_secondary_low h-8 text-muzical_primary text-sm rounded-md focus:ring-muzical_primary focus:border-muzical_primary border-none placeholder:text-muzical_primary block w-full pl-10 p-2.5 " placeholder="Video link..." />
                             </div>
-                            <button onClick = {(e) => embedHandler(e)}  className = "w-2/12 bg-muzical_secondary_low h-8 text-muzical_primary text-sm rounded-md focus:ring-muzical_primary focus:border-muzical_primary border-none text-center pl-2.5 pr-2.5 ">Search</button>
+                            <button onClick = {(e) => embedHandler(e)}  className = "w-2/12 bg-muzical_secondary_low h-8 text-muzical_primary text-sm rounded-md focus:ring-muzical_primary focus:border-muzical_primary border-none text-center pl-2.5 pr-2.5 ">Embed</button>
                         </div>
                         <div className = "rounded-md bg-muzical_secondary_low h-80 mb-[40px]">
                             <YouTube
