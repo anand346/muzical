@@ -7,21 +7,25 @@ export default function Channels(){
 
     const channel_list = [
         {
+            id : 1,
             name : "First",
             link : `${process.env.NEXT_PUBLIC_API_ROOT}/channel/first`,
             image : `${process.env.NEXT_PUBLIC_API_ROOT}/images/channel_first.jpg`
         },
         {
+            id : 2,
             name : "Second",
             link : `${process.env.NEXT_PUBLIC_API_ROOT}/channel/second`,
             image : `${process.env.NEXT_PUBLIC_API_ROOT}/images/channel_second.jpg`
         },
         {
+            id : 3,
             name : "Third",
             link : `${process.env.NEXT_PUBLIC_API_ROOT}/channel/third`,
             image : `${process.env.NEXT_PUBLIC_API_ROOT}/images/channel_third.jpg`
         },
         {
+            id : 4,
             name : "Fourth",
             link : `${process.env.NEXT_PUBLIC_API_ROOT}/channel/fourth`,
             image : `${process.env.NEXT_PUBLIC_API_ROOT}/images/channel_fourth.jpg`
@@ -51,7 +55,7 @@ export default function Channels(){
                     {
                         channel_list.map(channel => {
                             return (
-                                <ChannelCard channel={channel} />
+                                <ChannelCard key={channel.id}  channel={channel} />
                             )   
                         })
                     }
