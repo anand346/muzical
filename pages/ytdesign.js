@@ -1,5 +1,6 @@
 import RoomHeader from "@/components/RoomHeader";
 import RoomLeftSidebar from "@/components/RoomLeftSidebar";
+import RoomVideoBlock from "@/components/RoomVideoBlock";
 
 function Ytpage(){
 
@@ -7,8 +8,9 @@ function Ytpage(){
         <>
             <div className = "flex flex-col h-screen w-screen bg-muzical_secondary">
                 <RoomHeader />
-                <div className = "flex-1 items-center justify-between w-screen ">
-                    <RoomLeftSidebar />
+                <div className = "h-[87%] flex justify-center w-screen ">
+                    {/* <RoomLeftSidebar /> */}
+                    <RoomVideoBlock />
                 </div>
                 
             </div>

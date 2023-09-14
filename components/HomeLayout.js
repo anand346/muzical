@@ -16,8 +16,8 @@ export default function HomeLayout(){
                     <div className = "logo">
                         <Image src = "/images/logo.png" alt="Muzical Logo" height={100} width={100} className = "w-[5rem] md:w-[7rem] " />
                     </div>
-                    <div className = "create_room_btn cursor-pointer rounded-[10rem] py-[4px] px-[10px] md:py-[7px] md:px-[20px] bg-muzical_secondary font-bold">
-                        <Link href="/public_rooms"><p className = "text-muzical_primary text-[12px] md:text-[14px] " >Public Rooms <i className = "pl-[5px] fa fa-arrow-right"></i> </p></Link>
+                    <div className = "create_room_btn cursor-pointer rounded-[10rem] py-[2px] px-[4px] md:py-[7px] md:px-[20px] bg-muzical_secondary font-bold">
+                        <a href="https://github.com/anand346/muzical" className="block hover:text-muzical_primary py-2 pl-3 pr-4 text-muzical_grey rounded  md:border-0  md:p-0"><i className = "fa fa-github text-[24px]"></i></a>
                     </div>
                 </div>
                 <section className = "w-full flex flex-col items-center justify-center">
@@ -25,8 +25,8 @@ export default function HomeLayout(){
                         <p className = "text-muzical_black text-[28px] md:text-[3rem]  font-bold">Let's Enjoy Music Together</p>
                         <p className = "text-muzical_black text-[14px] md:text-[24px] text-center">Enjoy music with your friends and loved ones at one place</p>
                     </div>
-                    <div className = "explore_rooms_btn cursor-pointer px-[20px] py-[5px] bg-[#fff] rounded-[10rem]">
-                        <p className = " text-[12px] md:text-[18px] text-muzical_black font-bold" data-modal-toggle="createRoomModal"><i className = "text-dark fa fa-plus pr-[5px]"></i> Create Room</p>
+                    <div className = "create_room_btn cursor-pointer rounded-[10rem] py-[4px] px-[10px] md:py-[7px] md:px-[20px] bg-muzical_secondary font-bold">
+                        <Link href={`${process.env.NEXT_PUBLIC_API_ROOT}/channels`}><p className = "text-muzical_primary text-[12px] md:text-[14px] " >Public Rooms <i className = "pl-[5px] fa fa-arrow-right"></i> </p></Link>
                     </div>
 
                     {/* <!-- Main modal --> */}
