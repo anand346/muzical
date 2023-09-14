@@ -156,12 +156,13 @@ function YouTubePage(){
                             </div>
                             <button onClick = {(e) => embedHandler(e)}  className = "w-2/12 bg-muzical_secondary_low h-8 text-muzical_primary text-sm rounded-md focus:ring-muzical_primary focus:border-muzical_primary border-none text-center pl-2.5 pr-2.5 ">Embed</button>
                         </div>
-                        <div className = "rounded-md bg-muzical_secondary_low h-80 mb-[40px]">
+                        <div className = "rounded-md bg-muzical_secondary_low h-80 mb-[40px] w-[100%] relative">
                             <YouTube
                                 videoId={videoCode}
-                                containerClassName="embed embed-youtube"
+                                className="embed embed-youtube absolute w-[100%]"
                                 onReady={_onReady}
                                 opts={opts}
+                                iframeClassName={'w-[100%] absolute'}
                             />
                         </div>
                         <div className = "player_controller rounded-md flex flex-row w-full justify-center items-center bg-muzical_secondary_low p-2 space-x-4">

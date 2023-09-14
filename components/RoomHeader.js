@@ -14,7 +14,7 @@ function RoomHeader(){
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
                         </svg>
                     </button>
-                    <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+                    <div className="hidden w-full md:block md:w-auto relative z-10" id="navbar-default">
                         <ul className="font-medium flex flex-col p-4 md:p-0 mt-4  rounded-lg bg-muzical_secondary_low md:flex-row md:space-x-8 md:mt-0 md:border-0 ">
                             <li>
                                 <a href="https://github.com/anand346/muzical" className="block hover:text-muzical_primary py-2 pl-3 pr-4 text-muzical_grey rounded  md:border-0  md:p-0"><i className = "fa fa-github text-[24px]"></i></a>
