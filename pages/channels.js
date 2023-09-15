@@ -51,7 +51,7 @@ export default function Channels(){
                             </div> */}
                         </div>  
                     </div>
-                    <div className = " public_rooms_list flex flex-grow flex-wrap w-full items-start justify-center space-x-5 space-y-5">
+                    <div className = " public_rooms_list flex flex-grow flex-wrap w-full items-start justify-center md:space-x-5 space-y-5">
                     {
                         channel_list.map(channel => {
                             return (
