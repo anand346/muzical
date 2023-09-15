@@ -13,15 +13,13 @@ Whether you're separated by miles or just sitting in the same room, Muzical allo
 
 3. **Customizable Experience**: Tailor the viewing experience with playback controls and quality settings.
 
-4. **Cross-Platform**: Access SyncTube from your web browser on desktop or mobile devices, ensuring everyone can participate.
+4. **Cross-Platform**: Access Muzical from your web browser on desktop or mobile devices, ensuring everyone can participate.
 
 ## Live Demo 😀
 Visit our [**live demo**](https://muzical.vercel.app) to experience Muzical in action. Invite your friends and start watching videos together right now!
 
 ## Tech Stack ⚙️
-![Javascript](https://img.shields.io/badge/JavaScript-ES6-yellow?style=for-the-badge&logo=javascript "Javascript") ![Nex.js](https://img.shields.io/badge/Next.js-React_Framework-000?style=for-the-badge&logo=next.js "Nex.js")
-
-![Tailwindcss](https://img.shields.io/badge/Tailwind_CSS-CSS_Framework-38B2AC?style=for-the-badge&logo=tailwind-css "Tailwindcss")
+![Javascript](https://img.shields.io/badge/JavaScript-ES6-yellow?style=for-the-badge&logo=javascript "Javascript") ![Nex.js](https://img.shields.io/badge/Next.js-React_Framework-000?style=for-the-badge&logo=next.js "Nex.js") ![Tailwindcss](https://img.shields.io/badge/Tailwind_CSS-CSS_Framework-38B2AC?style=for-the-badge&logo=tailwind-css "Tailwindcss")
 
 ## Make Your Contribution 🚀
 
