@@ -1,4 +1,4 @@
-![Muzical banner](https://bepractical.tech/blogs/wp-content/uploads/2023/muzical_banner.png "Muzical banner")
+![Muzical banner](./muzical_banner.png "Muzical banner")
 
 ## Muzical Welcomes You ✨👋
 
