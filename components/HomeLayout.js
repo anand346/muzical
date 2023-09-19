@@ -10,7 +10,7 @@ export default function HomeLayout(){
     const [roomName,setRoomName] = useState("");
     return (
         <>
-            <div className = "font-Helvetica h-screen relative w-screen bg-[url('/images/bg_home.png')] bg-cover md:p-8 sm:p-4 p-4">
+            <div className = "font-Helvetica h-screen relative w-screen bg-[url('/images/bg_home.jpg')] bg-cover md:p-8 sm:p-4 p-4">
                 <div className = "navbar w-full flex items-center justify-between md:mb-[50px] mb-[100px]">
                     <div className = "logo">
                         <Image src = "/images/logo.png" alt="Muzical Logo" height={100} width={100} className = "w-[5rem] md:w-[7rem] " />
