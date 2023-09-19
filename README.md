@@ -1,4 +1,4 @@
-![Muzical banner](./muzical_banner.png "Muzical banner")
+![Muzical banner](https://github.com/anand346/muzical/assets/64061582/7d00aedf-e417-4867-b709-b993b800fa44 "Muzical banner")
 
 ## Muzical Welcomes You ✨👋
 
