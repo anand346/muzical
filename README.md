@@ -1,6 +1,6 @@
 ![Muzical banner](https://github.com/anand346/muzical/assets/64061582/7d00aedf-e417-4867-b709-b993b800fa44 "Muzical banner")
 
-## Muzical Welcomes You ✨👋
+# Muzical Welcomes You ✨👋
 
 Muzical is a groundbreaking web application that brings people closer together through the power of synchronized video streaming.
 
