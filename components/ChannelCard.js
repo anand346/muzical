@@ -1,15 +1,15 @@
 import React from "react";
 import Image from "next/image";
 
-export default function ChannelCard({channel}){
+export default function ChannelCard({ channel }) {
 
 
     return (
         <>
 
-            <div className=" first:mt-5 min-w-[200px] bg-muzical_secondary_low rounded-md p-2">
-                <a href="#" className = "w-full  ">
-                    <Image className="w-full mb-4 rounded-md object-cover" width = {100} height = {100} src={`${channel.image}`} alt="product image" />
+            <div className=" first:mt-5 min-w-[200px] bg-muzical_secondary_low hover:bg-muzical_secondary_high rounded-md p-2">
+                <a href="#" className="w-full  ">
+                    <Image className="w-full mb-4 rounded-md object-cover" width={100} height={100} src={`${channel.image}`} alt="product image" />
                 </a>
                 <div className="flex flex-col justify-end items-center w-full">
                     <h3 className="text-xl font-semibold tracking-tight text-muzical_primary mb-8">{channel.name}</h3>
