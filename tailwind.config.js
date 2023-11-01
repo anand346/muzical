@@ -16,7 +16,9 @@ module.exports = {
 		fontFamily: {
 			Helvetica: ["Helvetica"],
 		},
-		extend: {},
+		extend: {
+		},
+		
 	},
 	plugins: [
 		function ({ addBase, addUtilities }) {

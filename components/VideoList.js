@@ -2,13 +2,13 @@ import Image from "next/image";
 function VideoList({ videoInfo, embedHandler }) {
   return (
     <>
-      <div className="w-full h-[calc(100% - 60px)] flex flex-col justify-start items-start overflow-scroll no-scrollbar ">
+      <div className="w-full h-[calc(100% - 60px)] flex flex-col justify-start items-start overflow-scroll no-scrollbar p-4">
         {videoInfo.map((video) => {
           return (
             <div
               key={video.videoID}
               onClick={(e) => embedHandler(e, video.videoID)}
-              className=" cursor-pointer videoList_component bg-muzical_secondary_low p-2  md:p-4 mb-4 rounded-md  w-full h-[150px] flex items-center justify-start transition duration-300 ease-in-out transform hover:scale-105"
+              className=" cursor-pointer videoList_component bg-muzical_secondary_low p-2  md:p-4 mb-4 rounded-md hover:scale-105 w-full h-[150px] flex items-center justify-start transition duration-300 ease-in-out transform "
             >
               <div className="videoThumbnail relative h-[95px] mr-2 md:mr-8 w-6/12 sm:w-4/12 overflow-hidden rounded-md">
                 <img
@@ -20,7 +20,7 @@ function VideoList({ videoInfo, embedHandler }) {
                 <p className="videoTitle w-full text-muzical_primary truncate overflow-hidden text-xl m-0 p-0 mb-1">
                   {video.videoTitle}
                 </p>
-                <p className="channelName w-full text-muzical_grey text-lg m-0 p-0 mb-1">
+                <p className="channelName w-full text-muzical_grey text-sm m-0 p-0 mb-1">
                   {video.channelTitle}
                 </p>
                 <p className="videoDesc w-full truncate overflow-hidden ">
